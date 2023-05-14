@@ -57,6 +57,15 @@ Press Alt+Enter on `@string/accessibility_service_description` to create your de
 
 After this step, you should be able to see the new accessibility service on the device > *Setting* > *Accessibility* and be able to turn it on.
 
+# Log
+```
+Log.d("yohey", "debug message")
+Log.i("yohey", "info message")
+Log.w("yohey", "warn message")
+Log.e("yohey", "error message")
+```
+View logs in *Logcat*. Usually it is located in the bottom of IDE.
+
 
 
 
