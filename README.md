@@ -141,6 +141,8 @@ private fun post(content: String) {
 ```
 ** Use `Sync project with Gradle files` action when reference abnoraml **
 
+# Get APK
+- In Toolbox > *Build* > *Build Bundle(s) / APK(s)* > *Build APK(s)*
 
 # Others
 Get package name in code
