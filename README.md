@@ -92,6 +92,16 @@ val content = exploreNodeInfo(rootNode)
 Log.d("yohey", content)
 ```
 
+# Click Node after Seconds
+```
+if (nodeInfo.text != null && nodeInfo.text.contains("TargetText", true)) {
+    nodeInfo.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+    val handler = Handler(Looper.getMainLooper())
+    handler.postDelayed({
+       nodeInfo?.performAction(AccessibilityNodeInfo.ACTION_CLICK)
+    }, 10000) // 10 seconds
+}
+```        
 
 # Others
 Get package name in code
