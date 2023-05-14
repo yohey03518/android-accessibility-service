@@ -103,6 +103,45 @@ if (nodeInfo.text != null && nodeInfo.text.contains("TargetText", true)) {
 }
 ```        
 
+# Communicate with Internet via OkHttpClient
+- Install `OkHttpClient` in `build.gradle` (module level)
+```
+dependencies {
+  implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+}
+```
+- Request Internet permission in `AndroidManifest.xml`
+```
+<manifest ...>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application ...
+```
+- Post content
+```
+private fun post(content: String) {
+    val client = OkHttpClient()
+    val requestBody = content.toRequestBody("text/plain".toMediaTypeOrNull())
+    val request = Request.Builder()
+        .url("https://webhook.site/xxxxxx")
+        .post(requestBody)
+        .build()
+
+    client.newCall(request).enqueue(object : Callback {
+        override fun onFailure(call: Call, e: IOException) {
+            e.printStackTrace()
+        }
+
+        override fun onResponse(call: Call, response: Response) {
+            if (!response.isSuccessful) throw IOException("Unexpected code $response")
+
+            Log.d("Erwin", response.message)
+        }
+    })
+}
+```
+** Use `Sync project with Gradle files` action when reference abnoraml **
+
+
 # Others
 Get package name in code
 ```
