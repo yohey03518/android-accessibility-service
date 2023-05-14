@@ -66,6 +66,39 @@ Log.e("yohey", "error message")
 ```
 View logs in *Logcat*. Usually it is located in the bottom of IDE.
 
+# Get Screen Node and Explore
+Use `rootInActiveWindow` to get root node.
+Use `.text` to get the text in node.
+Use `.childCount` and `.getChild(i)` to explore child nodes.
+```
+private fun exploreNodeInfo(nodeInfo: AccessibilityNodeInfo): String {
+  var content = "";
+  if (!nodeInfo.text.isNullOrEmpty()) {
+    content += "," + nodeInfo.text
+  }
+  for (i in 0 until nodeInfo.childCount) {
+    val childNode = nodeInfo.getChild(i)
+    if (childNode != null) {
+      content += "," + exploreNodeInfo(childNode)
+    }
+  }
+  return content
+}
+```
+In `onAccessibilityEvent`
+```
+val rootNode = rootInActiveWindow
+val content = exploreNodeInfo(rootNode)
+Log.d("yohey", content)
+```
+
+
+# Others
+Get package name in code
+```
+val root = rootInActiveWindow;
+val packageName = root.packageName.toString()
+```
 
 
 
