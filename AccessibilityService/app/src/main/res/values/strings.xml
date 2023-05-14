@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AccessibilityService</string>
+    <string name="accessibility_service_description">yohey\'s accessibility service</string>
 </resources>
