@@ -1,13 +1,16 @@
-# Step 0
+# What's this?
+This is a Android accessibility service example.
+
+## Step 0
 - Install Android Studio
 - Install emulator device
 
-# Create New Project
+## Create New Project
 - Select *Phone and Tablet* and choose *Empty Activity*.
 - Enter project name and package name.
 - Choose SDK version lower than the target device.
 
-# Create Accessibility Service 
+## Create Accessibility Service 
 - In the project view, right click package (com.yohey03518.accessibilityservice) > *New* > *Service* > *Service*.
 - Enter name and select language (this project uses Kotlin, click Finish).
 - In the new `MyFirstAccessibilityService`, extend from `AccessibilityService` and override two methods.
@@ -57,7 +60,7 @@ Press Alt+Enter on `@string/accessibility_service_description` to create your de
 
 After this step, you should be able to see the new accessibility service on the device > *Setting* > *Accessibility* and be able to turn it on.
 
-# Log
+## Log
 ```
 Log.d("yohey", "debug message")
 Log.i("yohey", "info message")
@@ -66,7 +69,7 @@ Log.e("yohey", "error message")
 ```
 View logs in *Logcat*. Usually it is located in the bottom of IDE.
 
-# Get Screen Node and Explore
+## Get Screen Node and Explore
 Use `rootInActiveWindow` to get root node.
 Use `.text` to get the text in node.
 Use `.childCount` and `.getChild(i)` to explore child nodes.
@@ -92,7 +95,7 @@ val content = exploreNodeInfo(rootNode)
 Log.d("yohey", content)
 ```
 
-# Click Node after Seconds
+## Click Node after Seconds
 ```
 if (nodeInfo.text != null && nodeInfo.text.contains("TargetText", true)) {
     nodeInfo.performAction(AccessibilityNodeInfo.ACTION_CLICK)
@@ -103,7 +106,7 @@ if (nodeInfo.text != null && nodeInfo.text.contains("TargetText", true)) {
 }
 ```        
 
-# Communicate with Internet via OkHttpClient
+## Communicate with Internet via OkHttpClient
 - Install `OkHttpClient` in `build.gradle` (module level)
 ```
 dependencies {
@@ -141,10 +144,10 @@ private fun post(content: String) {
 ```
 ** Use `Sync project with Gradle files` action when reference abnoraml **
 
-# Get APK
+## Get APK
 - In Toolbox > *Build* > *Build Bundle(s) / APK(s)* > *Build APK(s)*
 
-# Others
+## Others
 Get package name in code
 ```
 val root = rootInActiveWindow;
